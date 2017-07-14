@@ -13,7 +13,7 @@ Currently there are **two** possible ways to install Form Sentinel:
     ```
     Or
     ```shell
-    $ bower install form-sentinel
+    $ bower install form-sentinel -S
     ```
     to add Form Sentinel to your dependencies list.
 
@@ -37,6 +37,7 @@ form.validationRules = {
     }
 }
 ```
+You can find out more about *validationRules* property [here](#).
 
 The **third** thing you should do is specify cases of when you want a validation to happen, like this:
 ```javascript
@@ -44,6 +45,7 @@ form.validateOn = ["submit", {
     keyup: {name: ["presence"]}
 }];
 ```
+You can find out more about *validateOn* property [here](#).
 
 The **last** thing is to add the validation event listener and handle results of validation:
 ```javascript
@@ -55,3 +57,4 @@ form.addEventListener("validation", function(event) {
     }
 });
 ```
+You can find out more about *validation event* [here](#).
