@@ -280,7 +280,8 @@ Object.defineProperty(HTMLFormElement.prototype, "validateOn", {
             let v = new Validation(this);
 
             this.dispatchEvent(new CustomEvent("beforeValidation", {detail: {
-                
+                eventType: eventType,
+                fieldToValidate: fields
             }}));
 
             v.validateFields(fields, certainRules);
