@@ -5,7 +5,6 @@ class SingleValidation {
     }
 
     presence(presence, message = "can't be blank") {
-        console.log(message);
         let value = this.field.value;
         if (presence instanceof Array) {
             value = presence[1].trim ? value.trim() : value;
