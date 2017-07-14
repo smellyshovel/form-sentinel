@@ -37,7 +37,7 @@ form.validationRules = {
     }
 }
 ```
-You can find out more about *validationRules* property [here](#).
+You can find out more about *validationRules* property [here](https://github.com/smellyshovel/form-sentinel/wiki/Working-with-the-validationRules-property).
 
 The **third** thing you should do is specify cases of when you want a validation to happen, like this:
 ```javascript
