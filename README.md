@@ -16,3 +16,42 @@ Currently there are **two** possible ways to install Form Sentinel:
     $ bower install form-sentinel
     ```
     to add Form Sentinel to your dependencies list.
+
+## Usage
+**First of all** you should create a variable which contains a link to your form element.
+```javascript
+let form = document.querySelector("#myForm");
+```
+
+**Then** you should add `validationRules` property to your form object and make it equal to the object,
+that contains validation constraints for the definite form. For example:
+```javascript
+form.validationRules = {
+    name: {
+        presense: [true, {trim: true}],
+        length: {maximum: 24},
+        messages: {
+            presense: "must be filled",
+            length: "maximum length is 24 characters"
+        }
+    }
+}
+```
+
+The **third** thing you should do is specify cases of when you want a validation to happen, like this:
+```javascript
+form.validateOn = ["submit", {
+    keyup: {name: ["presence"]}
+}];
+```
+
+The **last** thing is to add the validation event listener and handle results of validation:
+```javascript
+form.addEventListener("validation", function(event) {
+    if (event.detail.validation.passed) {
+        // do something with form.correctedFields
+    } else if (event.detail.validation.failed) {
+        // do something with form.fieldsWithErrors
+    }
+});
+```
