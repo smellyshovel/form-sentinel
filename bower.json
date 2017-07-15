@@ -1,6 +1,6 @@
 {
   "name": "form-sentinel",
-  "description": "Describe the validation constraints, specify cases for validate, listen to the validation event to happen and handle results. As simple as that!",
+  "description": "Vanilla JavaScript form validator with Rails-like constraints description syntax",
   "main": "src/form-sentinel.js",
   "keywords": [
     "form",
@@ -11,13 +11,11 @@
     "Matthew Mamonov <g.smellyshovel@gmail.com>"
   ],
   "license": "GNU LGPL v3.0",
-  "homepage": "",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
     "tests",
-    "documentation"
   ]
 }
