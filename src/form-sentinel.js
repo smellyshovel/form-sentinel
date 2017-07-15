@@ -186,6 +186,21 @@ HTMLFormElement.prototype.disableBrowserValidations = function () {
     this.setAttribute("novalidate", "");
 };
 
+HTMLFormElement.prototype.registerBeforeValidationEvent = function (toggledBy, fields) {
+    if (fields instanceof Array) {
+        var flattened = fields.reduce(function(prev, curr) {
+            return prev.concat(curr);
+        });
+    } else if (fields instanceof HTMLElement) {
+        var flattened = [fields];
+    }
+
+    return new CustomEvent("beforeValidation", {detail: {
+        eventType: toggledBy,
+        fieldsToValidate: flattened
+    }});
+};
+
 HTMLFormElement.prototype.registerValidationEvent = function (toggledBy, validation) {
     return new CustomEvent("validation", {detail: {
         toggledBy: toggledBy,
@@ -279,10 +294,8 @@ Object.defineProperty(HTMLFormElement.prototype, "validateOn", {
         this.addEventListeners(events, (eventType, fields, certainRules) => {
             let v = new Validation(this);
 
-            this.dispatchEvent(new CustomEvent("beforeValidation", {detail: {
-                eventType: eventType,
-                fieldsToValidate: fields
-            }}));
+            let beforeValidationEvent = this.registerBeforeValidationEvent(eventType, fields);
+            this.dispatchEvent(beforeValidationEvent);
 
             v.validateFields(fields, certainRules);
 
