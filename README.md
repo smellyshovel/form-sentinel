@@ -1,7 +1,13 @@
 # Form Sentinel
-Form Sentinel allows you to validate the forms on your page fast and painless. Just describe validation constraints that you wish your form
-to correspond to, specify when a validation should happen (or even when and which ones on which fields should happen), then add the
-validation event listener to your form and handle results!
+Inspired by Ruby On Rails ActiveRecord Validations *Form Sentinel* allows you to
+painlessly define validation constraints for your forms and easily validate them
+just by specifying what and when to validate and then catching the `validation`
+event and working with its properties.
+
+The main principles of the *Form Sentinel* are the explicit and concise description
+of the validation constraints, the ability to simply bind certain checks to certain
+events that occur with the form (and not only the form), and the ability to work
+with the validation event asynchronously.
 
 ## Installation
 Currently there are **two** possible ways to install Form Sentinel:
