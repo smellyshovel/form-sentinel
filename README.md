@@ -72,4 +72,7 @@ form.addEventListener("validation", function(event) {
     }
 });
 ```
-You can find out more about *validation event* [here](#).
+You can find out more about `validation event` [here](#).
+
+After that you can work with `fieldsWithErrors` and `correctedFields` properties
+of the `form`. As simple as that!
