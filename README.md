@@ -9,11 +9,16 @@ of the validation constraints, the ability to simply bind certain checks to cert
 events that occur with the form (and not only the form), and the ability to work
 with the validation event asynchronously.
 
+*Form Sentinel* is written using Vanilla JavaScript and has **no dependencies**.
+
 ## Installation
 Currently there are **two** possible ways to install Form Sentinel:
 
-1. Just download the version you prefer and add it to your project folder
-1. Install via `bower`
+1. Just download the desired version, unpack it to your project's folder and add
+the `<script src>` tag (pointing to `src/form-sentinel.js`) to the HTML file.
+
+1. Install via `[bower](http://bower.io)`:
+
     ```shell
     $ bower install form-sentinel
     ```
