@@ -1,13 +1,24 @@
 # Form Sentinel
-Form Sentinel allows you to validate the forms on your page fast and painless. Just describe validation constraints that you wish your form
-to correspond to, specify when a validation should happen (or even when and which ones on which fields should happen), then add the
-validation event listener to your form and handle results!
+Inspired by Ruby On Rails ActiveRecord Validations *Form Sentinel* allows you to
+painlessly define validation constraints for your forms and easily validate them
+just by specifying what and when to validate and then catching the `validation`
+event and working with its properties.
+
+The main principles of the *Form Sentinel* are the explicit and concise description
+of the validation constraints, the ability to simply bind certain checks to certain
+events that occur with the form (and not only the form), and the ability to work
+with the validation event asynchronously.
+
+*Form Sentinel* is written using Vanilla JavaScript and has **no dependencies**.
 
 ## Installation
 Currently there are **two** possible ways to install Form Sentinel:
 
-1. Just download the version you prefer and add it to your project folder
-1. Install via `bower`
+1. Just download the desired version, unpack it to your project's folder and add
+the `<script src>` tag (pointing to `src/form-sentinel.js`) to the HTML file.
+
+1. Install via `[bower](http://bower.io)`:
+
     ```shell
     $ bower install form-sentinel
     ```
@@ -18,13 +29,14 @@ Currently there are **two** possible ways to install Form Sentinel:
     to add Form Sentinel to your dependencies list.
 
 ## Usage
-**First of all** you should create a variable which contains a link to your form element.
+**First of all** you should create a variable which contains a link to your form
+element:
 ```javascript
 let form = document.querySelector("#myForm");
 ```
 
-**Then** you should add `validationRules` property to your form object and make it equal to the object,
-that contains validation constraints for the definite form. For example:
+**Then** add the `validationRules` property to your `form` and make it equal to
+the object, that contains validation constraints for this `form`:
 ```javascript
 form.validationRules = {
     name: {
@@ -37,17 +49,20 @@ form.validationRules = {
     }
 }
 ```
-You can find out more about *validationRules* property [here](https://github.com/smellyshovel/form-sentinel/wiki/Working-with-the-validationRules-property).
+You can find out more about `validationRules` property [here](https://github.com/smellyshovel/form-sentinel/wiki/Working-with-the-validationRules-property).
 
-The **third** thing you should do is specify cases of when you want a validation to happen, like this:
+The **third** thing you should do is set the `validateOn` property of the `form`
+corresponding to your vision of which validations of which fields should happen
+on defenite events ongoing with the `form`:
 ```javascript
 form.validateOn = ["submit", {
     keyup: {name: ["presence"]}
 }];
 ```
-You can find out more about *validateOn* property [here](#).
+You can find out more about `validateOn` property [here](#).
 
-The **last** thing is to add the validation event listener and handle results of validation:
+The **last** thing is to add the validation event listener to the `form` and
+handle results of validation:
 ```javascript
 form.addEventListener("validation", function(event) {
     if (event.detail.validation.passed) {
@@ -57,4 +72,15 @@ form.addEventListener("validation", function(event) {
     }
 });
 ```
-You can find out more about *validation event* [here](#).
+You can find out more about `validation event` [here](#).
+
+After that you can work with `fieldsWithErrors` and `correctedFields` properties
+of the `form`. As simple as that!
+
+## Details
+All the details of Usage can be found in the
+[Wiki](https://github.com/smellyshovel/form-sentinel/wiki) of the project.
+
+## Contribution
+I'm open to any kind of contribution you can offer, especially to your new bright
+ideas and making the code better. Don't be shy :+1:!
