@@ -76,3 +76,11 @@ You can find out more about `validation event` [here](#).
 
 After that you can work with `fieldsWithErrors` and `correctedFields` properties
 of the `form`. As simple as that!
+
+## Details
+All the details of Usage can be found in the
+[Wiki](https://github.com/smellyshovel/form-sentinel/wiki) of the project.
+
+## Contribution
+I'm open to any kind of contribution you can offer, especially to your new bright
+ideas and making the code better. Don't be shy :+1:!
