@@ -62,7 +62,7 @@ class SingleValidation {
 
     format(format, message = "is invalid") {
         if (format.with) {
-            if (!~this.field.value.search(format.with)) return message;
+            if (this.field.value.search(format.with) === -1) return message;
         } else if (format.without) {
             if (~this.field.value.search(format.without)) return message;
         }
@@ -218,7 +218,7 @@ HTMLFormElement.prototype.addEventListeners = function (events, callback) {
 
     let attachedGlobalEvents = [];
     globalEvents.forEach((event) => {
-        if (!~attachedGlobalEvents.indexOf(event)) {
+        if (attachedGlobalEvents.indexOf(event) === -1) {
             if (event === "submit") {
                 this.addEventListener(event, function(event) {
                     event.preventDefault();
@@ -244,7 +244,7 @@ HTMLFormElement.prototype.addEventListeners = function (events, callback) {
     let availableParticularEvents = ["change", "blur", "keyup"];
     let attachedParticularEvents = [];
     for (let event in particularEvents) {
-        if (~availableParticularEvents.indexOf(event) && !~attachedParticularEvents.indexOf(event)) {
+        if (~availableParticularEvents.indexOf(event) && attachedParticularEvents.indexOf(event) === -1) {
             if (particularEvents[event] instanceof Array) {
                 particularEvents[event].forEach((name) => {
                     let el = this.fieldsToCheck(true).find((field) => {
