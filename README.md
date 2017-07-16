@@ -29,13 +29,14 @@ the `<script src>` tag (pointing to `src/form-sentinel.js`) to the HTML file.
     to add Form Sentinel to your dependencies list.
 
 ## Usage
-**First of all** you should create a variable which contains a link to your form element.
+**First of all** you should create a variable which contains a link to your form
+element:
 ```javascript
 let form = document.querySelector("#myForm");
 ```
 
-**Then** you should add `validationRules` property to your form object and make it equal to the object,
-that contains validation constraints for the definite form. For example:
+**Then** add the `validationRules` property to your `form` and make it equal to
+the object, that contains validation constraints for this `form`:
 ```javascript
 form.validationRules = {
     name: {
@@ -48,17 +49,20 @@ form.validationRules = {
     }
 }
 ```
-You can find out more about *validationRules* property [here](https://github.com/smellyshovel/form-sentinel/wiki/Working-with-the-validationRules-property).
+You can find out more about `validationRules` property [here](https://github.com/smellyshovel/form-sentinel/wiki/Working-with-the-validationRules-property).
 
-The **third** thing you should do is specify cases of when you want a validation to happen, like this:
+The **third** thing you should do is set the `validateOn` property of the `form`
+corresponding to your vision of which validations of which fields should happen
+on defenite events ongoing with the `form`:
 ```javascript
 form.validateOn = ["submit", {
     keyup: {name: ["presence"]}
 }];
 ```
-You can find out more about *validateOn* property [here](#).
+You can find out more about `validateOn` property [here](#).
 
-The **last** thing is to add the validation event listener and handle results of validation:
+The **last** thing is to add the validation event listener to the `form` and
+handle results of validation:
 ```javascript
 form.addEventListener("validation", function(event) {
     if (event.detail.validation.passed) {
