@@ -59,7 +59,7 @@ form.validateOn = ["submit", {
     keyup: {name: ["presence"]}
 }];
 ```
-You can find out more about `validateOn` property [here](#).
+You can find out more about `validateOn` property [here](https://github.com/smellyshovel/form-sentinel/wiki/Working-with-the-validateOn-property).
 
 The **last** thing is to add the validation event listener to the `form` and
 handle results of validation:
